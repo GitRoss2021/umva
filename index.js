@@ -143,7 +143,7 @@ app.get("/", (req, res, next) => {
     },
   });
 });
-app.use("/users", userRouter);
+app.use("/user", userRouter);
 app.use("/contact", contactRoute);
 app.use("/booking", bookingRouter);
 app.set("port", process.env.PORT || 7080);
