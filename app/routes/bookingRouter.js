@@ -12,7 +12,7 @@ const router = express.Router();
 router.get("/", auth, async (req, res) => {
   try {
     const booking = await booking.find();
-    res.status(201).send(products);
+    res.status(201).send(booking);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }booking
