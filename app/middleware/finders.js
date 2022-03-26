@@ -1,5 +1,5 @@
 // This is used to find various Schemas
-const User = require("../module/user");
+const User = require("./user");
 const Booking = require("../module/booking");
 
 async function getUser(req, res, next) {
