@@ -22,7 +22,7 @@ app.get("/", (req, res, next) => {
     user_routes: {
       user_register: {
         method: "POST",
-        route: "/user",
+        route: "/userRouter",
         request_body: {
           fullname: "String",
           email: "String",
@@ -36,7 +36,7 @@ app.get("/", (req, res, next) => {
       },
       user_login: {
         method: "PATCH",
-        route: "/user",
+        route: "/userRouter",
         request_body: {
           email: "String",
           password: "String",
@@ -47,14 +47,14 @@ app.get("/", (req, res, next) => {
       },
       all_users: {
         method: "GET",
-        route: "/user",
+        route: "/userRouter",
         result: {
           users: "Array",
         },
       },
       single_user: {
         method: "GET",
-        route: "/user/:id",
+        route: "/userRouter/:id",
         result: {
           user: "Object",
         },
@@ -69,14 +69,14 @@ app.get("/", (req, res, next) => {
           img: "String *optional* (Must be hosted image on Post Image)",
           cart: "object",
         },
-        route: "/user/:id",
+        route: "/userRouter/:id",
         result: {
           user: "Object",
         },
       },
       delete_user: {
         method: "DELETE",
-        route: "/user/:id",
+        route: "/userRouter/:id",
         result: {
           message: "Object",
         },
