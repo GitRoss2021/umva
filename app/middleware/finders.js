@@ -1,6 +1,6 @@
 // This is used to find various Schemas
 const User = require("../module/user");
-const Product = require("../module/booking");
+const Booking = require("../module/booking");
 
 async function getUser(req, res, next) {
   let user;
@@ -19,7 +19,7 @@ async function getBooking(req, res, next) {
   let booking;
   try {
     booking = await Booking.findById(req.params.id);
-    if (!booking) res.status(404).json({ message: "Could not find product" });
+    if (!booking) res.status(404).json({ message: "Could not find booking" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

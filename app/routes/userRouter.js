@@ -1,7 +1,7 @@
 // require("dotenv").config;
 
 const express = require("express");
-// const User = require("../module/user");
+const User = require("../module/user");
 const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
