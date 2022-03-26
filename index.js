@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const contactAPI = require("./app/routes/contactAPI");
+const user = require("./app/module/user");
+const contactRoute = require("./app/routes/contactAPI");
 const userRouter = require("./app/routes/userRouter");
 const bookingRouter = require("./app/routes/bookingRouter");
 // Setting up MongoDB connection

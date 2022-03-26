@@ -1,7 +1,7 @@
 // require("dotenv").config;
 
 const express = require("express");
-const booking = require("../models/booking");
+const booking = require("../module/booking");
 const auth = require("../middleware/auth");
 const { getUser, getBooking } = require("../middleware/finders");
 
