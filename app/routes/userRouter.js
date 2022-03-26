@@ -5,7 +5,7 @@ const User = require("./user");
 const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { getUser, getBooking } = require("../middleware/finders");
+const {  getBooking } = require("../middleware/finders");
 // const { update } = require("../module/user");
 
 const router = express.Router();
