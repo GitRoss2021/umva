@@ -144,7 +144,7 @@ app.get("/", (req, res, next) => {
   });
 });
 app.use("/users", userRouter);
-app.use("/contact", contactRoute);
+// app.use("/contact", contactRoute);
 app.use("/booking", bookingRouter);
 app.set("port", process.env.PORT || 7080);
 app.listen(app.get("port"), (server) => {
