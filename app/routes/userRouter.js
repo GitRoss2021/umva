@@ -1,11 +1,11 @@
 // require("dotenv").config;
 
 const express = require("express");
-const User = require("./user");
+const User = require("../models/user");
 const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const {  getBooking } = require("../middleware/finders");
+const { getUser, getBooking } = require("../middleware/finders");
 // const { update } = require("../module/user");
 
 const router = express.Router();

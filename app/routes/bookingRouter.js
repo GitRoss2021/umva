@@ -1,10 +1,9 @@
 // require("dotenv").config;
 
 const express = require("express");
-const booking = require("../module/booking");
+const booking = require("../models/booking");
 const auth = require("../middleware/auth");
 const { getUser, getBooking } = require("../middleware/finders");
-
 
 const router = express.Router();
 
@@ -15,18 +14,18 @@ router.get("/", auth, async (req, res) => {
     res.status(201).send(booking);
   } catch (error) {
     res.status(500).send({ message: error.message });
-  }booking
+  }
+  booking;
 });
 
-// GET one product
+// GET one booking
 router.get("/:id", [auth, getBooking], (req, res, next) => {
   res.send(res.booking);
 });
 
-// CREATE a product
+// CREATE a booking
 router.post("/", auth, async (req, res, next) => {
-
-  const { title, category,description, img, price } = req.body;
+  const { title, category, description, img, price } = req.body;
 
   let booking;
 
@@ -37,15 +36,15 @@ router.post("/", auth, async (req, res, next) => {
         description,
         created_by: req.user._id,
         img,
-        price
+        price,
       }))
     : (booking = new booking({
-      title,
-      category,
-      description,
-      created_by: req.user._id,
-      img,
-      price
+        title,
+        category,
+        description,
+        created_by: req.user._id,
+        img,
+        price,
       }));
 
   try {
@@ -56,13 +55,13 @@ router.post("/", auth, async (req, res, next) => {
   }
 });
 
-// UPDATE a product
+// UPDATE a booking
 router.patch("/:id", [auth, getBooking], async (req, res, next) => {
   if (req.user._id !== res.booking.created_by)
     res
       .status(400)
       .json({ message: "You do not have the permission to update this room" });
-  const { title, category,description, img, price } = req.body;
+  const { title, category, description, img, price } = req.body;
   if (title) res.booking.title = title;
   if (category) res.booking.category = category;
   if (description) res.booking.description = description;
@@ -77,19 +76,19 @@ router.patch("/:id", [auth, getBooking], async (req, res, next) => {
   }
 });
 
-// DELETE a product
+// DELETE a booking
 router.delete("/:id", [auth, getBooking], async (req, res, next) => {
   if (req.user._id !== res.booking.created_by)
     res
       .status(400)
       .json({ message: "You do not have the permission to delete this room" });
   try {
-    const booking = await booking.findById(req.booking._id)
+    const booking = await booking.findById(req.booking._id);
     await booking.remove();
-    res.json({ message: "Deleted product" });
+    res.json({ message: "Deleted booking" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-module.exports = router;
+module.exports = router
